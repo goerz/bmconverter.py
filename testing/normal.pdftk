@@ -1,0 +1,207 @@
+BookmarkTitle: Funktionen und Nullstellen
+BookmarkLevel: 1
+BookmarkPageNumber: 1
+BookmarkTitle: Algorithmen f&#252;r f(x)=0
+BookmarkLevel: 2
+BookmarkPageNumber: 2
+BookmarkTitle: Intervall-Halbierungs-Methode
+BookmarkLevel: 3
+BookmarkPageNumber: 2
+BookmarkTitle: Regula Falsi
+BookmarkLevel: 3
+BookmarkPageNumber: 3
+BookmarkTitle: Newton-Raphson-Methode
+BookmarkLevel: 3
+BookmarkPageNumber: 4
+BookmarkTitle: Konvergenzgeschwindigkeit
+BookmarkLevel: 3
+BookmarkPageNumber: 5
+BookmarkTitle: Sekantenmethode
+BookmarkLevel: 3
+BookmarkPageNumber: 6
+BookmarkTitle: Kombination zweier Verfahren
+BookmarkLevel: 3
+BookmarkPageNumber: 6
+BookmarkTitle: Interpolation und approximative Darstellung von Funktionen
+BookmarkLevel: 1
+BookmarkPageNumber: 7
+BookmarkTitle: Lineare Interpolation
+BookmarkLevel: 2
+BookmarkPageNumber: 7
+BookmarkTitle: Kubische Splines
+BookmarkLevel: 2
+BookmarkPageNumber: 8
+BookmarkTitle: Tridiagonale lineare Systeme
+BookmarkLevel: 2
+BookmarkPageNumber: 11
+BookmarkTitle: Least-Square-Fit
+BookmarkLevel: 2
+BookmarkPageNumber: 13
+BookmarkTitle: Numerische Integration
+BookmarkLevel: 1
+BookmarkPageNumber: 15
+BookmarkTitle: Trapezregel
+BookmarkLevel: 2
+BookmarkPageNumber: 15
+BookmarkTitle: Simpsonsche Endrittel-Regel
+BookmarkLevel: 2
+BookmarkPageNumber: 16
+BookmarkTitle: Simpsonsche Dreiachtel-Regel
+BookmarkLevel: 2
+BookmarkPageNumber: 16
+BookmarkTitle: Newton-Cotes-Formeln
+BookmarkLevel: 2
+BookmarkPageNumber: 17
+BookmarkTitle: Betrachtung des Fehlers
+BookmarkLevel: 2
+BookmarkPageNumber: 18
+BookmarkTitle: Gaussche Integralformeln / Quadraturformeln
+BookmarkLevel: 2
+BookmarkPageNumber: 19
+BookmarkTitle: Meist genutzte Quadraturformeln
+BookmarkLevel: 2
+BookmarkPageNumber: 24
+BookmarkTitle: Approximation von Ableitungen
+BookmarkLevel: 1
+BookmarkPageNumber: 26
+BookmarkTitle: Lineare Gleichungen und Lineare Algebra
+BookmarkLevel: 1
+BookmarkPageNumber: 28
+BookmarkTitle: Gauss-Jordan-Elimination
+BookmarkLevel: 2
+BookmarkPageNumber: 30
+BookmarkTitle: Inverse Matrix
+BookmarkLevel: 2
+BookmarkPageNumber: 31
+BookmarkTitle: Pseudocode
+BookmarkLevel: 2
+BookmarkPageNumber: 31
+BookmarkTitle: LU-Zerlegung
+BookmarkLevel: 2
+BookmarkPageNumber: 32
+BookmarkTitle: Crout-Algorithmus
+BookmarkLevel: 2
+BookmarkPageNumber: 33
+BookmarkTitle: Inverse Matrix und Determinante im LU-Verfahren
+BookmarkLevel: 2
+BookmarkPageNumber: 37
+BookmarkTitle: Effizienzvergleich
+BookmarkLevel: 2
+BookmarkPageNumber: 37
+BookmarkTitle: &#220;berbestimmte Systeme
+BookmarkLevel: 2
+BookmarkPageNumber: 38
+BookmarkTitle: Iterative Verfahren f&#252;r lineare Gleichungssysteme
+BookmarkLevel: 2
+BookmarkPageNumber: 40
+BookmarkTitle: Jacobi-Verfahren
+BookmarkLevel: 3
+BookmarkPageNumber: 40
+BookmarkTitle: Gauss-Seidel-Verfahren
+BookmarkLevel: 3
+BookmarkPageNumber: 41
+BookmarkTitle: Fehlefortpflanzung : Gauss / Gauss-Jordan / LU-Zerlegung
+BookmarkLevel: 2
+BookmarkPageNumber: 43
+BookmarkTitle: Eigenwertprobleme
+BookmarkLevel: 2
+BookmarkPageNumber: 45
+BookmarkTitle: Rayleigh-Quotient
+BookmarkLevel: 2
+BookmarkPageNumber: 46
+BookmarkTitle: Kreissatz von Gerschgorin
+BookmarkLevel: 2
+BookmarkPageNumber: 47
+BookmarkTitle: Ausgleichsproblem
+BookmarkLevel: 2
+BookmarkPageNumber: 48
+BookmarkTitle: Allgemein: lineare kleinste Quadrate
+BookmarkLevel: 3
+BookmarkPageNumber: 50
+BookmarkTitle: Fehleranalyse
+BookmarkLevel: 3
+BookmarkPageNumber: 50
+BookmarkTitle: Weiterf&#252;hrung: lineare kleinste Quadrate
+BookmarkLevel: 3
+BookmarkPageNumber: 52
+BookmarkTitle: Singul&#228;rwertzerlegung (SVD)
+BookmarkLevel: 3
+BookmarkPageNumber: 53
+BookmarkTitle: Orthogonale Polynome
+BookmarkLevel: 3
+BookmarkPageNumber: 55
+BookmarkTitle: Stabilit&#228;t
+BookmarkLevel: 3
+BookmarkPageNumber: 57
+BookmarkTitle: Gew&#246;hnliche Differentialgleichungen
+BookmarkLevel: 1
+BookmarkPageNumber: 58
+BookmarkTitle: Runge-Kutta-Verfahren
+BookmarkLevel: 2
+BookmarkPageNumber: 59
+BookmarkTitle: Runge-Kutta-Verfahren vierter Ordnung
+BookmarkLevel: 2
+BookmarkPageNumber: 60
+BookmarkTitle: Schrittweitesteuerung, Adaptive Schrittweite
+BookmarkLevel: 2
+BookmarkPageNumber: 61
+BookmarkTitle: Fourier-Transformation
+BookmarkLevel: 1
+BookmarkPageNumber: 62
+BookmarkTitle: Fast-Fourier-Transform
+BookmarkLevel: 2
+BookmarkPageNumber: 65
+BookmarkTitle: Monte-Carlo-Simulation
+BookmarkLevel: 1
+BookmarkPageNumber: 68
+BookmarkTitle: Zufallsbewegung (1D)
+BookmarkLevel: 2
+BookmarkPageNumber: 68
+BookmarkTitle: Kontinuums&#252;bergang
+BookmarkLevel: 2
+BookmarkPageNumber: 69
+BookmarkTitle: Random Walk in D Dimensionen
+BookmarkLevel: 2
+BookmarkPageNumber: 70
+BookmarkTitle: Chapman-Kolmogorov-Gleichung
+BookmarkLevel: 2
+BookmarkPageNumber: 71
+BookmarkTitle: Gyrationsradius
+BookmarkLevel: 2
+BookmarkPageNumber: 73
+BookmarkTitle: Selbstmeidende Zufallsbewegungen
+BookmarkLevel: 2
+BookmarkPageNumber: 74
+BookmarkTitle: Feynmansches Pfadintegral
+BookmarkLevel: 2
+BookmarkPageNumber: 75
+BookmarkTitle: Numerische Umsetzung: Metropolis-Methode
+BookmarkLevel: 3
+BookmarkPageNumber: 78
+BookmarkTitle: Metropolis-Pseudocode
+BookmarkLevel: 3
+BookmarkPageNumber: 80
+BookmarkTitle: Perkolationstheorie
+BookmarkLevel: 2
+BookmarkPageNumber: 81
+BookmarkTitle: mittlere Clustergr&#246;&#223;e
+BookmarkLevel: 3
+BookmarkPageNumber: 81
+BookmarkTitle: Gyrationsradius
+BookmarkLevel: 3
+BookmarkPageNumber: 83
+BookmarkTitle: Korrelationsfunktion
+BookmarkLevel: 3
+BookmarkPageNumber: 83
+BookmarkTitle: Korrelationsl&#228;nge
+BookmarkLevel: 3
+BookmarkPageNumber: 83
+BookmarkTitle: Hyperscaling
+BookmarkLevel: 3
+BookmarkPageNumber: 85
+BookmarkTitle: Eindimensionales Gitter
+BookmarkLevel: 3
+BookmarkPageNumber: 85
+BookmarkTitle: Bethe-Gitter
+BookmarkLevel: 3
+BookmarkPageNumber: 87

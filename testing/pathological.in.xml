@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookmark>
+  <Title Action="Launch" File="Manuscript Format (6X9).doc" >openfile
+    <Title Action="GoTo" Page="11 XYZ -101 797 0.710007" >nameddest
+      <Title Open="false" Action="GoTo" Page="20 Fit" Color="1 1 0" >normal_with_color
+        <Title Action="GoToR" Page="0 /Fit" File="../My Documents/GSP/East-West  flat Vol.3.pdf" >page_in_other_doc
+          <Title Action="URI" URI="www.google.com" >link
+            <Title >play_sound
+              <Title >menu</Title>
+            </Title>
+          </Title>
+        </Title>
+      </Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="2 FitR -77 226 689 796" Color="0.62746 0.47842 0.91373" >Bokmark &quot;In Quotes&quot; Name
+    <Title Action="GoTo" Page="6 XYZ -77 796 1.0" Style="italic bold" >&lt;Title Action=&quot;GoTo&quot;&gt;Bookmark with XML&lt;/Title&gt;</Title>
+    <Title Action="GoTo" Page="7 XYZ -77 796 1.0" Style="bold" >Bookmark in Bold</Title>
+    <Title Action="GoTo" Page="9 XYZ -77 796 1.0" >Cursing $%;\/}|^::\#?_+@_$#_ Comic Figure</Title>
+    <Title Action="GoTo" Page="4 FitR -77 226 689 796" Style="italic" >Bookmark o&apos;the Rocks</Title>
+    <Title Action="GoTo" Page="5 XYZ -78 796 0.860001" >This Bookmark uses ÍñŤĘЯ∏AТآΩŉ4╘ ☺™0 Characters</Title>
+    <Title Action="GoTo" Page="2 FitR -25 226 637 796" >2 View Actions
+      <Title Open="false" Action="GoTo" Page="5 XYZ -28 796 0.990005" >Untitled
+        <Title Action="GoTo" Page="6 XYZ -28 796 0.990005" >Untitled :: 2</Title>
+      </Title>
+      <Title Action="GoTo" Page="6 XYZ -28 796 0.990005" > </Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="18 XYZ null 796 0.0" >Triple Action</Title>
+</Bookmark>

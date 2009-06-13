@@ -1,0 +1,18 @@
+1;O;openfile;0;Action=\22Launch\22 File=\22Manuscript Format (6X9).doc\22
+2;O;nameddest;11 XYZ -101 797 0.710007
+3;;normal_with_color;20 Fit;Color=\221 1 0\22
+4;O;page_in_other_doc;0;Action=\22GoToR\22 Page=\220 /Fit\22 File=\22../My Documents/GSP/East-West  flat Vol.3.pdf\22
+5;O;link;0;Action=\22URI\22 URI=\22www.google.com\22
+6;O;play_sound;0
+7;O;menu;0
+1;O;Bokmark \22In Quotes\22 Name;2 FitR -77 226 689 796;Color=\220.62746 0.47842 0.91373\22
+2;OBI;<Title Action=\22GoTo\22>Bookmark with XML</Title>;6 XYZ -77 796 1.0
+2;OB;Bookmark in Bold;7 XYZ -77 796 1.0
+2;O;Cursing $%\3B\5C/}|^::\5C#?_+@_$#_ Comic Figure;9 XYZ -77 796 1.0
+2;OI;Bookmark o\27the Rocks;4 FitR -77 226 689 796
+2;O;This Bookmark uses ÍñŤĘЯ∏AТآΩŉ4╘ ☺™0 Characters;5 XYZ -78 796 0.860001
+2;O;2 View Actions;2 FitR -25 226 637 796
+3;;Untitled;5 XYZ -28 796 0.990005
+4;O;Untitled :: 2;6 XYZ -28 796 0.990005
+3;O; ;6 XYZ -28 796 0.990005
+1;O;Triple Action;18 XYZ null 796 0.0

@@ -1,0 +1,69 @@
+1;;Funktionen und Nullstellen ;1 XYZ null null null
+2;;Algorithmen für f(x)=0 ;2 XYZ null null null
+3;O;Intervall-Halbierungs-Methode ;2 XYZ null null null
+3;O;Regula Falsi ;3 XYZ null null null
+3;O;Newton-Raphson-Methode ;4 XYZ null null null
+3;O;Konvergenzgeschwindigkeit ;5 XYZ null null null
+3;O;Sekantenmethode ;6 XYZ null null null
+3;O;Kombination zweier Verfahren ;6 XYZ null null null
+1;;Interpolation und approximative Darstellung von Funktionen ;7 XYZ null null null
+2;O;Lineare Interpolation ;7 XYZ null null null
+2;O;Kubische Splines ;8 XYZ null null null
+2;O;Tridiagonale lineare Systeme ;11 XYZ null null null
+2;O;Least-Square-Fit ;13 XYZ null null null
+1;;Numerische Integration ;15 XYZ null null null
+2;O;Trapezregel ;15 XYZ null null null
+2;O;Simpsonsche Endrittel-Regel ;16 XYZ null null null
+2;O;Simpsonsche Dreiachtel-Regel ;16 XYZ null null null
+2;O;Newton-Cotes-Formeln ;17 XYZ null null null
+2;O;Betrachtung des Fehlers ;18 XYZ null null null
+2;O;Gaussche Integralformeln / Quadraturformeln ;19 XYZ null null null
+2;O;Meist genutzte Quadraturformeln ;24 XYZ null null null
+1;O;Approximation von Ableitungen ;26 XYZ null null null
+1;;Lineare Gleichungen und Lineare Algebra ;28 XYZ null null null
+2;O;Gauss-Jordan-Elimination ;30 XYZ null null null
+2;O;Inverse Matrix ;31 XYZ null null null
+2;O;Pseudocode ;31 XYZ null null null
+2;O;LU-Zerlegung ;32 XYZ null null null
+2;O;Crout-Algorithmus ;33 XYZ null null null
+2;O;Inverse Matrix und Determinante im LU-Verfahren ;37 XYZ null null null
+2;O;Effizienzvergleich ;37 XYZ null null null
+2;O;Überbestimmte Systeme ;38 XYZ null null null
+2;;Iterative Verfahren für lineare Gleichungssysteme ;40 XYZ null null null
+3;O;Jacobi-Verfahren ;40 XYZ null null null
+3;O;Gauss-Seidel-Verfahren ;41 XYZ null null null
+2;O;Fehlefortpflanzung : Gauss / Gauss-Jordan / LU-Zerlegung ;43 XYZ null null null
+2;O;Eigenwertprobleme ;45 XYZ null null null
+2;O;Rayleigh-Quotient ;46 XYZ null null null
+2;O;Kreissatz von Gerschgorin ;47 XYZ null null null
+2;;Ausgleichsproblem ;48 XYZ null null null
+3;O;Allgemein: lineare kleinste Quadrate ;50 XYZ null null null
+3;O;Fehleranalyse ;50 XYZ null null null
+3;O;Weiterführung: lineare kleinste Quadrate ;52 XYZ null null null
+3;O;Singulärwertzerlegung (SVD) ;53 XYZ null null null
+3;O;Orthogonale Polynome ;55 XYZ null null null
+3;O;Stabilität ;57 XYZ null null null
+1;;Gewöhnliche Differentialgleichungen ;58 XYZ null null null
+2;O;Runge-Kutta-Verfahren ;59 XYZ null null null
+2;O;Runge-Kutta-Verfahren vierter Ordnung ;60 XYZ null null null
+2;O;Schrittweitesteuerung, Adaptive Schrittweite ;61 XYZ null null null
+1;;Fourier-Transformation ;62 XYZ null null null
+2;O;Fast-Fourier-Transform ;65 XYZ null null null
+1;;Monte-Carlo-Simulation ;68 XYZ null null null
+2;O;Zufallsbewegung (1D) ;68 XYZ null null null
+2;O;Kontinuumsübergang ;69 XYZ null null null
+2;O;Random Walk in D Dimensionen ;70 XYZ null null null
+2;O;Chapman-Kolmogorov-Gleichung ;71 XYZ null null null
+2;O;Gyrationsradius ;73 XYZ null null null
+2;O;Selbstmeidende Zufallsbewegungen ;74 XYZ null null null
+2;;Feynmansches Pfadintegral ;75 XYZ null null null
+3;O;Numerische Umsetzung: Metropolis-Methode ;78 XYZ null null null
+3;O;Metropolis-Pseudocode ;80 XYZ null null null
+2;;Perkolationstheorie ;81 XYZ null null null
+3;O;mittlere Clustergröße ;81 XYZ null null null
+3;O;Gyrationsradius ;83 XYZ null null null
+3;O;Korrelationsfunktion ;83 XYZ null null null
+3;O;Korrelationslänge ;83 XYZ null null null
+3;O;Hyperscaling ;85 XYZ null null null
+3;O;Eindimensionales Gitter ;85 XYZ null null null
+3;O;Bethe-Gitter ;87 XYZ null null null

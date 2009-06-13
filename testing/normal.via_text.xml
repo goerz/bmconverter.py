@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookmark>
+  <Title Action="GoTo" Page="1" >Funktionen und Nullstellen
+    <Title Action="GoTo" Page="2" >Algorithmen für f(x)=0
+      <Title Action="GoTo" Page="2" >Intervall-Halbierungs-Methode</Title>
+      <Title Action="GoTo" Page="3" >Regula Falsi</Title>
+      <Title Action="GoTo" Page="4" >Newton-Raphson-Methode</Title>
+      <Title Action="GoTo" Page="5" >Konvergenzgeschwindigkeit</Title>
+      <Title Action="GoTo" Page="6" >Sekantenmethode</Title>
+      <Title Action="GoTo" Page="6" >Kombination zweier Verfahren</Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="7" >Interpolation und approximative Darstellung von Funktionen
+    <Title Action="GoTo" Page="7" >Lineare Interpolation</Title>
+    <Title Action="GoTo" Page="8" >Kubische Splines</Title>
+    <Title Action="GoTo" Page="11" >Tridiagonale lineare Systeme</Title>
+    <Title Action="GoTo" Page="13" >Least-Square-Fit</Title>
+  </Title>
+  <Title Action="GoTo" Page="15" >Numerische Integration
+    <Title Action="GoTo" Page="15" >Trapezregel</Title>
+    <Title Action="GoTo" Page="16" >Simpsonsche Endrittel-Regel</Title>
+    <Title Action="GoTo" Page="16" >Simpsonsche Dreiachtel-Regel</Title>
+    <Title Action="GoTo" Page="17" >Newton-Cotes-Formeln</Title>
+    <Title Action="GoTo" Page="18" >Betrachtung des Fehlers</Title>
+    <Title Action="GoTo" Page="19" >Gaussche Integralformeln / Quadraturformeln</Title>
+    <Title Action="GoTo" Page="24" >Meist genutzte Quadraturformeln</Title>
+  </Title>
+  <Title Action="GoTo" Page="26" >Approximation von Ableitungen</Title>
+  <Title Action="GoTo" Page="28" >Lineare Gleichungen und Lineare Algebra
+    <Title Action="GoTo" Page="30" >Gauss-Jordan-Elimination</Title>
+    <Title Action="GoTo" Page="31" >Inverse Matrix</Title>
+    <Title Action="GoTo" Page="31" >Pseudocode</Title>
+    <Title Action="GoTo" Page="32" >LU-Zerlegung</Title>
+    <Title Action="GoTo" Page="33" >Crout-Algorithmus</Title>
+    <Title Action="GoTo" Page="37" >Inverse Matrix und Determinante im LU-Verfahren</Title>
+    <Title Action="GoTo" Page="37" >Effizienzvergleich</Title>
+    <Title Action="GoTo" Page="38" >Überbestimmte Systeme</Title>
+    <Title Action="GoTo" Page="40" >Iterative Verfahren für lineare Gleichungssysteme
+      <Title Action="GoTo" Page="40" >Jacobi-Verfahren</Title>
+      <Title Action="GoTo" Page="41" >Gauss-Seidel-Verfahren</Title>
+    </Title>
+    <Title Action="GoTo" Page="43" >Fehlefortpflanzung : Gauss / Gauss-Jordan / LU-Zerlegung</Title>
+    <Title Action="GoTo" Page="45" >Eigenwertprobleme</Title>
+    <Title Action="GoTo" Page="46" >Rayleigh-Quotient</Title>
+    <Title Action="GoTo" Page="47" >Kreissatz von Gerschgorin</Title>
+    <Title Action="GoTo" Page="48" >Ausgleichsproblem
+      <Title Action="GoTo" Page="50" >Allgemein: lineare kleinste Quadrate</Title>
+      <Title Action="GoTo" Page="50" >Fehleranalyse</Title>
+      <Title Action="GoTo" Page="52" >Weiterführung: lineare kleinste Quadrate</Title>
+      <Title Action="GoTo" Page="53" >Singulärwertzerlegung (SVD)</Title>
+      <Title Action="GoTo" Page="55" >Orthogonale Polynome</Title>
+      <Title Action="GoTo" Page="57" >Stabilität</Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="58" >Gewöhnliche Differentialgleichungen
+    <Title Action="GoTo" Page="59" >Runge-Kutta-Verfahren</Title>
+    <Title Action="GoTo" Page="60" >Runge-Kutta-Verfahren vierter Ordnung</Title>
+    <Title Action="GoTo" Page="61" >Schrittweitesteuerung, Adaptive Schrittweite</Title>
+  </Title>
+  <Title Action="GoTo" Page="62" >Fourier-Transformation
+    <Title Action="GoTo" Page="65" >Fast-Fourier-Transform</Title>
+  </Title>
+  <Title Action="GoTo" Page="68" >Monte-Carlo-Simulation
+    <Title Action="GoTo" Page="68" >Zufallsbewegung (1D)</Title>
+    <Title Action="GoTo" Page="69" >Kontinuumsübergang</Title>
+    <Title Action="GoTo" Page="70" >Random Walk in D Dimensionen</Title>
+    <Title Action="GoTo" Page="71" >Chapman-Kolmogorov-Gleichung</Title>
+    <Title Action="GoTo" Page="73" >Gyrationsradius</Title>
+    <Title Action="GoTo" Page="74" >Selbstmeidende Zufallsbewegungen</Title>
+    <Title Action="GoTo" Page="75" >Feynmansches Pfadintegral
+      <Title Action="GoTo" Page="78" >Numerische Umsetzung: Metropolis-Methode</Title>
+      <Title Action="GoTo" Page="80" >Metropolis-Pseudocode</Title>
+    </Title>
+    <Title Action="GoTo" Page="81" >Perkolationstheorie
+      <Title Action="GoTo" Page="81" >mittlere Clustergröße</Title>
+      <Title Action="GoTo" Page="83" >Gyrationsradius</Title>
+      <Title Action="GoTo" Page="83" >Korrelationsfunktion</Title>
+      <Title Action="GoTo" Page="83" >Korrelationslänge</Title>
+      <Title Action="GoTo" Page="85" >Hyperscaling</Title>
+      <Title Action="GoTo" Page="85" >Eindimensionales Gitter</Title>
+      <Title Action="GoTo" Page="87" >Bethe-Gitter</Title>
+    </Title>
+  </Title>
+</Bookmark>

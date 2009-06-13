@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookmark>
+  <Title Open="false" Action="GoTo" Page="1 XYZ null null null" >Funktionen und Nullstellen 
+    <Title Open="false" Action="GoTo" Page="2 XYZ null null null" >Algorithmen für f(x)=0 
+      <Title Action="GoTo" Page="2 XYZ null null null" >Intervall-Halbierungs-Methode </Title>
+      <Title Action="GoTo" Page="3 XYZ null null null" >Regula Falsi </Title>
+      <Title Action="GoTo" Page="4 XYZ null null null" >Newton-Raphson-Methode </Title>
+      <Title Action="GoTo" Page="5 XYZ null null null" >Konvergenzgeschwindigkeit </Title>
+      <Title Action="GoTo" Page="6 XYZ null null null" >Sekantenmethode </Title>
+      <Title Action="GoTo" Page="6 XYZ null null null" >Kombination zweier Verfahren </Title>
+    </Title>
+  </Title>
+  <Title Open="false" Action="GoTo" Page="7 XYZ null null null" >Interpolation und approximative Darstellung von Funktionen 
+    <Title Action="GoTo" Page="7 XYZ null null null" >Lineare Interpolation </Title>
+    <Title Action="GoTo" Page="8 XYZ null null null" >Kubische Splines </Title>
+    <Title Action="GoTo" Page="11 XYZ null null null" >Tridiagonale lineare Systeme </Title>
+    <Title Action="GoTo" Page="13 XYZ null null null" >Least-Square-Fit </Title>
+  </Title>
+  <Title Open="false" Action="GoTo" Page="15 XYZ null null null" >Numerische Integration 
+    <Title Action="GoTo" Page="15 XYZ null null null" >Trapezregel </Title>
+    <Title Action="GoTo" Page="16 XYZ null null null" >Simpsonsche Endrittel-Regel </Title>
+    <Title Action="GoTo" Page="16 XYZ null null null" >Simpsonsche Dreiachtel-Regel </Title>
+    <Title Action="GoTo" Page="17 XYZ null null null" >Newton-Cotes-Formeln </Title>
+    <Title Action="GoTo" Page="18 XYZ null null null" >Betrachtung des Fehlers </Title>
+    <Title Action="GoTo" Page="19 XYZ null null null" >Gaussche Integralformeln / Quadraturformeln </Title>
+    <Title Action="GoTo" Page="24 XYZ null null null" >Meist genutzte Quadraturformeln </Title>
+  </Title>
+  <Title Action="GoTo" Page="26 XYZ null null null" >Approximation von Ableitungen </Title>
+  <Title Open="false" Action="GoTo" Page="28 XYZ null null null" >Lineare Gleichungen und Lineare Algebra 
+    <Title Action="GoTo" Page="30 XYZ null null null" >Gauss-Jordan-Elimination </Title>
+    <Title Action="GoTo" Page="31 XYZ null null null" >Inverse Matrix </Title>
+    <Title Action="GoTo" Page="31 XYZ null null null" >Pseudocode </Title>
+    <Title Action="GoTo" Page="32 XYZ null null null" >LU-Zerlegung </Title>
+    <Title Action="GoTo" Page="33 XYZ null null null" >Crout-Algorithmus </Title>
+    <Title Action="GoTo" Page="37 XYZ null null null" >Inverse Matrix und Determinante im LU-Verfahren </Title>
+    <Title Action="GoTo" Page="37 XYZ null null null" >Effizienzvergleich </Title>
+    <Title Action="GoTo" Page="38 XYZ null null null" >Überbestimmte Systeme </Title>
+    <Title Open="false" Action="GoTo" Page="40 XYZ null null null" >Iterative Verfahren für lineare Gleichungssysteme 
+      <Title Action="GoTo" Page="40 XYZ null null null" >Jacobi-Verfahren </Title>
+      <Title Action="GoTo" Page="41 XYZ null null null" >Gauss-Seidel-Verfahren </Title>
+    </Title>
+    <Title Action="GoTo" Page="43 XYZ null null null" >Fehlefortpflanzung : Gauss / Gauss-Jordan / LU-Zerlegung </Title>
+    <Title Action="GoTo" Page="45 XYZ null null null" >Eigenwertprobleme </Title>
+    <Title Action="GoTo" Page="46 XYZ null null null" >Rayleigh-Quotient </Title>
+    <Title Action="GoTo" Page="47 XYZ null null null" >Kreissatz von Gerschgorin </Title>
+    <Title Open="false" Action="GoTo" Page="48 XYZ null null null" >Ausgleichsproblem 
+      <Title Action="GoTo" Page="50 XYZ null null null" >Allgemein: lineare kleinste Quadrate </Title>
+      <Title Action="GoTo" Page="50 XYZ null null null" >Fehleranalyse </Title>
+      <Title Action="GoTo" Page="52 XYZ null null null" >Weiterführung: lineare kleinste Quadrate </Title>
+      <Title Action="GoTo" Page="53 XYZ null null null" >Singulärwertzerlegung (SVD) </Title>
+      <Title Action="GoTo" Page="55 XYZ null null null" >Orthogonale Polynome </Title>
+      <Title Action="GoTo" Page="57 XYZ null null null" >Stabilität </Title>
+    </Title>
+  </Title>
+  <Title Open="false" Action="GoTo" Page="58 XYZ null null null" >Gewöhnliche Differentialgleichungen 
+    <Title Action="GoTo" Page="59 XYZ null null null" >Runge-Kutta-Verfahren </Title>
+    <Title Action="GoTo" Page="60 XYZ null null null" >Runge-Kutta-Verfahren vierter Ordnung </Title>
+    <Title Action="GoTo" Page="61 XYZ null null null" >Schrittweitesteuerung, Adaptive Schrittweite </Title>
+  </Title>
+  <Title Open="false" Action="GoTo" Page="62 XYZ null null null" >Fourier-Transformation 
+    <Title Action="GoTo" Page="65 XYZ null null null" >Fast-Fourier-Transform </Title>
+  </Title>
+  <Title Open="false" Action="GoTo" Page="68 XYZ null null null" >Monte-Carlo-Simulation 
+    <Title Action="GoTo" Page="68 XYZ null null null" >Zufallsbewegung (1D) </Title>
+    <Title Action="GoTo" Page="69 XYZ null null null" >Kontinuumsübergang </Title>
+    <Title Action="GoTo" Page="70 XYZ null null null" >Random Walk in D Dimensionen </Title>
+    <Title Action="GoTo" Page="71 XYZ null null null" >Chapman-Kolmogorov-Gleichung </Title>
+    <Title Action="GoTo" Page="73 XYZ null null null" >Gyrationsradius </Title>
+    <Title Action="GoTo" Page="74 XYZ null null null" >Selbstmeidende Zufallsbewegungen </Title>
+    <Title Open="false" Action="GoTo" Page="75 XYZ null null null" >Feynmansches Pfadintegral 
+      <Title Action="GoTo" Page="78 XYZ null null null" >Numerische Umsetzung: Metropolis-Methode </Title>
+      <Title Action="GoTo" Page="80 XYZ null null null" >Metropolis-Pseudocode </Title>
+    </Title>
+    <Title Open="false" Action="GoTo" Page="81 XYZ null null null" >Perkolationstheorie 
+      <Title Action="GoTo" Page="81 XYZ null null null" >mittlere Clustergröße </Title>
+      <Title Action="GoTo" Page="83 XYZ null null null" >Gyrationsradius </Title>
+      <Title Action="GoTo" Page="83 XYZ null null null" >Korrelationsfunktion </Title>
+      <Title Action="GoTo" Page="83 XYZ null null null" >Korrelationslänge </Title>
+      <Title Action="GoTo" Page="85 XYZ null null null" >Hyperscaling </Title>
+      <Title Action="GoTo" Page="85 XYZ null null null" >Eindimensionales Gitter </Title>
+      <Title Action="GoTo" Page="87 XYZ null null null" >Bethe-Gitter </Title>
+    </Title>
+  </Title>
+</Bookmark>

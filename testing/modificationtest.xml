@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bookmark>
+  <Title Action="Launch" File="Manuscript Format (6X9).doc" >openfile
+    <Title Action="GoTo" Page="11 XYZ -101 797 0.710007" >nameddest
+      <Title Open="false" Action="GoTo" Page="20 Fit" Color="1 1 0" >normal_with_color
+        <Title Action="GoToR" Page="0 /Fit" File="../My Documents/GSP/East-West  flat Vol.3.pdf" >page_in_other_doc
+          <Title Action="URI" URI="www.google.com" >link
+            <Title Action="GoTo" Page="0" >play_sound
+              <Title Action="GoTo" Page="0" >menu</Title>
+            </Title>
+          </Title>
+        </Title>
+      </Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="2 FitR -77 226 689 796" Color="0.62746 0.47842 0.91373" >Bokmark &quot;In Quotes&quot; Name
+    <Title Action="GoTo" Page="6 XYZ -77 796 1.0" Style="italic bold" >&lt;Title Action=&quot;GoTo&quot;&gt;Bookmark with XML&lt;/Title&gt;</Title>
+    <Title Action="GoTo" Page="7 XYZ -77 796 1.0" Style="bold" >Bookmark in Bold</Title>
+    <Title Action="GoTo" Page="9 XYZ -77 796 1.0" >Cursing $%;\/}|^::\#?_+@_$#_ Comic Figure</Title>
+    <Title Action="GoTo" Page="4 FitR -77 226 689 796" Style="italic" >Bookmark o&apos;the Rocks</Title>
+    <Title Action="GoTo" Page="5 XYZ -78 796 0.860001" >This Bookmark uses ÍñŤĘЯ∏AТآΩŉ4╘ ☺™0 Characters</Title>
+    <Title Action="GoTo" Page="2 FitR -25 226 637 796" >2 View Actions
+      <Title Open="false" Action="GoTo" Page="5 XYZ -28 796 0.990005" >Untitled
+        <Title Action="GoTo" Page="6 XYZ -28 796 0.990005" >Untitled :: 2</Title>
+      </Title>
+      <Title Action="GoTo" Page="6 XYZ -28 796 0.990005" > </Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="18 XYZ null 796 0.0" >Triple Action</Title>
+  <Title Action="Launch" File="Manuscript Format (6X9).doc" >COPY openfile
+    <Title Action="GoTo" Page="61 XYZ -101 797 0.710007" >COPY nameddest</Title>
+  </Title>
+  <Title Action="GoTo" Page="52 FitR -77 226 689 796" Color="0.62746 0.47842 0.91373" >COPY Bokmark &quot;In Quotes&quot; Name
+    <Title Action="GoTo" Page="56 XYZ -77 796 1.0" Style="italic bold" >COPY &lt;Title Action=&quot;GoTo&quot;&gt;Bookmark with XML&lt;/Title&gt;</Title>
+    <Title Action="GoTo" Page="57 XYZ -77 796 1.0" Style="bold" >COPY Bookmark in Bold</Title>
+    <Title Action="GoTo" Page="59 XYZ -77 796 1.0" >COPY Cursing $%;\/}|^::\#?_+@_$#_ Comic Figure</Title>
+    <Title Action="GoTo" Page="54 FitR -77 226 689 796" Style="italic" >COPY Bookmark o&apos;the Rocks</Title>
+    <Title Action="GoTo" Page="55 XYZ -78 796 0.860001" >COPY This Bookmark uses ÍñŤĘЯ∏AТآΩŉ4╘ ☺™0 Characters</Title>
+    <Title Action="GoTo" Page="52 FitR -25 226 637 796" >COPY 2 View Actions
+      <Title Open="false" Action="GoTo" Page="55 XYZ -28 796 0.990005" >COPY Untitled</Title>
+    </Title>
+  </Title>
+  <Title Action="GoTo" Page="68 XYZ null 796 0.0" >COPY Triple Action</Title>
+</Bookmark>
+
+
+
+    action      = Launch
+    level       = 1
+    title       = openfile
+    page        = 0
+    destination = None
+    named       = None
+    namedn      = None
+    file        = Manuscript Format (6X9).doc
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = None
+    open        = True
+    childnumber = -1
+    length      = 6
+
+        action      = GoTo
+        level       = 2
+        title       = nameddest
+        page        = 11
+        destination = XYZ -101 797 0.710007
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 5
+
+            action      = GoTo
+            level       = 3
+            title       = normal_with_color
+            page        = 20
+            destination = Fit
+            named       = None
+            namedn      = None
+            file        = None
+            newwindow   = None
+            uri         = None
+            italic      = False
+            bold        = False
+            color       = 1 1 0
+            open        = False
+            childnumber = -1
+            length      = 4
+
+                action      = GoToR
+                level       = 4
+                title       = page_in_other_doc
+                page        = 0
+                destination = /Fit
+                named       = None
+                namedn      = None
+                file        = ../My Documents/GSP/East-West  flat Vol.3.pdf
+                newwindow   = None
+                uri         = None
+                italic      = False
+                bold        = False
+                color       = None
+                open        = True
+                childnumber = -1
+                length      = 3
+
+                    action      = URI
+                    level       = 5
+                    title       = link
+                    page        = 0
+                    destination = None
+                    named       = None
+                    namedn      = None
+                    file        = None
+                    newwindow   = None
+                    uri         = www.google.com
+                    italic      = False
+                    bold        = False
+                    color       = None
+                    open        = True
+                    childnumber = -1
+                    length      = 2
+
+                        action      = None
+                        level       = 6
+                        title       = play_sound
+                        page        = 0
+                        destination = None
+                        named       = None
+                        namedn      = None
+                        file        = None
+                        newwindow   = None
+                        uri         = None
+                        italic      = False
+                        bold        = False
+                        color       = None
+                        open        = True
+                        childnumber = -1
+                        length      = 1
+
+                            action      = None
+                            level       = 7
+                            title       = menu
+                            page        = 0
+                            destination = None
+                            named       = None
+                            namedn      = None
+                            file        = None
+                            newwindow   = None
+                            uri         = None
+                            italic      = False
+                            bold        = False
+                            color       = None
+                            open        = True
+                            childnumber = -1
+                            length      = 0
+
+    action      = GoTo
+    level       = 1
+    title       = Bokmark "In Quotes" Name
+    page        = 2
+    destination = FitR -77 226 689 796
+    named       = None
+    namedn      = None
+    file        = None
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = 0.62746 0.47842 0.91373
+    open        = True
+    childnumber = -1
+    length      = 9
+
+        action      = GoTo
+        level       = 2
+        title       = <Title Action="GoTo">Bookmark with XML</Title>
+        page        = 6
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = True
+        bold        = True
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = Bookmark in Bold
+        page        = 7
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = True
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = Cursing $%;\/}|^::\#?_+@_$#_ Comic Figure
+        page        = 9
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = Bookmark o'the Rocks
+        page        = 4
+        destination = FitR -77 226 689 796
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = True
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = This Bookmark uses ??????A????4? ??0 Characters
+        page        = 5
+        destination = XYZ -78 796 0.860001
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = 2 View Actions
+        page        = 2
+        destination = FitR -25 226 637 796
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 3
+
+            action      = GoTo
+            level       = 3
+            title       = Untitled
+            page        = 5
+            destination = XYZ -28 796 0.990005
+            named       = None
+            namedn      = None
+            file        = None
+            newwindow   = None
+            uri         = None
+            italic      = False
+            bold        = False
+            color       = None
+            open        = False
+            childnumber = -1
+            length      = 1
+
+                action      = GoTo
+                level       = 4
+                title       = Untitled :: 2
+                page        = 6
+                destination = XYZ -28 796 0.990005
+                named       = None
+                namedn      = None
+                file        = None
+                newwindow   = None
+                uri         = None
+                italic      = False
+                bold        = False
+                color       = None
+                open        = True
+                childnumber = -1
+                length      = 0
+
+            action      = GoTo
+            level       = 3
+            title       =  
+            page        = 6
+            destination = XYZ -28 796 0.990005
+            named       = None
+            namedn      = None
+            file        = None
+            newwindow   = None
+            uri         = None
+            italic      = False
+            bold        = False
+            color       = None
+            open        = True
+            childnumber = -1
+            length      = 0
+
+    action      = GoTo
+    level       = 1
+    title       = Triple Action
+    page        = 18
+    destination = XYZ null 796 0.0
+    named       = None
+    namedn      = None
+    file        = None
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = None
+    open        = True
+    childnumber = -1
+    length      = 0
+
+    action      = Launch
+    level       = 1
+    title       = COPY openfile
+    page        = 50
+    destination = None
+    named       = None
+    namedn      = None
+    file        = Manuscript Format (6X9).doc
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = None
+    open        = True
+    childnumber = -1
+    length      = 1
+
+        action      = GoTo
+        level       = 2
+        title       = COPY nameddest
+        page        = 61
+        destination = XYZ -101 797 0.710007
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+    action      = GoTo
+    level       = 1
+    title       = COPY Bokmark "In Quotes" Name
+    page        = 52
+    destination = FitR -77 226 689 796
+    named       = None
+    namedn      = None
+    file        = None
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = 0.62746 0.47842 0.91373
+    open        = True
+    childnumber = -1
+    length      = 7
+
+        action      = GoTo
+        level       = 2
+        title       = COPY <Title Action="GoTo">Bookmark with XML</Title>
+        page        = 56
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = True
+        bold        = True
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = COPY Bookmark in Bold
+        page        = 57
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = True
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = COPY Cursing $%;\/}|^::\#?_+@_$#_ Comic Figure
+        page        = 59
+        destination = XYZ -77 796 1.0
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = COPY Bookmark o'the Rocks
+        page        = 54
+        destination = FitR -77 226 689 796
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = True
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = COPY This Bookmark uses ??????A????4? ??0 Characters
+        page        = 55
+        destination = XYZ -78 796 0.860001
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 0
+
+        action      = GoTo
+        level       = 2
+        title       = COPY 2 View Actions
+        page        = 52
+        destination = FitR -25 226 637 796
+        named       = None
+        namedn      = None
+        file        = None
+        newwindow   = None
+        uri         = None
+        italic      = False
+        bold        = False
+        color       = None
+        open        = True
+        childnumber = -1
+        length      = 1
+
+            action      = GoTo
+            level       = 3
+            title       = COPY Untitled
+            page        = 55
+            destination = XYZ -28 796 0.990005
+            named       = None
+            namedn      = None
+            file        = None
+            newwindow   = None
+            uri         = None
+            italic      = False
+            bold        = False
+            color       = None
+            open        = False
+            childnumber = -1
+            length      = 0
+
+    action      = GoTo
+    level       = 1
+    title       = COPY Triple Action
+    page        = 68
+    destination = XYZ null 796 0.0
+    named       = None
+    namedn      = None
+    file        = None
+    newwindow   = None
+    uri         = None
+    italic      = False
+    bold        = False
+    color       = None
+    open        = True
+    childnumber = -1
+    length      = 0
+

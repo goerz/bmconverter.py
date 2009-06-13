@@ -1,0 +1,69 @@
+Funktionen und Nullstellen :: 1
+    Algorithmen für f(x)=0 :: 2
+        Intervall-Halbierungs-Methode :: 2
+        Regula Falsi :: 3
+        Newton-Raphson-Methode :: 4
+        Konvergenzgeschwindigkeit :: 5
+        Sekantenmethode :: 6
+        Kombination zweier Verfahren :: 6
+Interpolation und approximative Darstellung von Funktionen :: 7
+    Lineare Interpolation :: 7
+    Kubische Splines :: 8
+    Tridiagonale lineare Systeme :: 11
+    Least-Square-Fit :: 13
+Numerische Integration :: 15
+    Trapezregel :: 15
+    Simpsonsche Endrittel-Regel :: 16
+    Simpsonsche Dreiachtel-Regel :: 16
+    Newton-Cotes-Formeln :: 17
+    Betrachtung des Fehlers :: 18
+    Gaussche Integralformeln / Quadraturformeln :: 19
+    Meist genutzte Quadraturformeln :: 24
+Approximation von Ableitungen :: 26
+Lineare Gleichungen und Lineare Algebra :: 28
+    Gauss-Jordan-Elimination :: 30
+    Inverse Matrix :: 31
+    Pseudocode :: 31
+    LU-Zerlegung :: 32
+    Crout-Algorithmus :: 33
+    Inverse Matrix und Determinante im LU-Verfahren :: 37
+    Effizienzvergleich :: 37
+    Überbestimmte Systeme :: 38
+    Iterative Verfahren für lineare Gleichungssysteme :: 40
+        Jacobi-Verfahren :: 40
+        Gauss-Seidel-Verfahren :: 41
+    Fehlefortpflanzung : Gauss / Gauss-Jordan / LU-Zerlegung :: 43
+    Eigenwertprobleme :: 45
+    Rayleigh-Quotient :: 46
+    Kreissatz von Gerschgorin :: 47
+    Ausgleichsproblem :: 48
+        Allgemein: lineare kleinste Quadrate :: 50
+        Fehleranalyse :: 50
+        Weiterführung: lineare kleinste Quadrate :: 52
+        Singulärwertzerlegung (SVD) :: 53
+        Orthogonale Polynome :: 55
+        Stabilität :: 57
+Gewöhnliche Differentialgleichungen :: 58
+    Runge-Kutta-Verfahren :: 59
+    Runge-Kutta-Verfahren vierter Ordnung :: 60
+    Schrittweitesteuerung, Adaptive Schrittweite :: 61
+Fourier-Transformation :: 62
+    Fast-Fourier-Transform :: 65
+Monte-Carlo-Simulation :: 68
+    Zufallsbewegung (1D) :: 68
+    Kontinuumsübergang :: 69
+    Random Walk in D Dimensionen :: 70
+    Chapman-Kolmogorov-Gleichung :: 71
+    Gyrationsradius :: 73
+    Selbstmeidende Zufallsbewegungen :: 74
+    Feynmansches Pfadintegral :: 75
+        Numerische Umsetzung: Metropolis-Methode :: 78
+        Metropolis-Pseudocode :: 80
+    Perkolationstheorie :: 81
+        mittlere Clustergröße :: 81
+        Gyrationsradius :: 83
+        Korrelationsfunktion :: 83
+        Korrelationslänge :: 83
+        Hyperscaling :: 85
+        Eindimensionales Gitter :: 85
+        Bethe-Gitter :: 87
