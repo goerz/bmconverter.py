@@ -1,13 +1,15 @@
-# bmconverter.py
-
-[http://github.com/goerz/bmconverter.py](http://github.com/goerz/bmconverter.py)
-
-Author: [Michael Goerz](http://michaelgoerz.net)
+---
+layout: default
+title: bmconverter.py
+github-url: http://github.com/goerz/bmconverter.py
+---
 
 `bmconverter.py` converts between the bookmark description formats used by
 different pdf and djvu bookmarking tools such as [pdftk][1], the [iText
 toolbox][2], [pdfWriteBookmarks][3], [jpdftweak][4], [djvused][5], and the
 [DJVU Bookmark Tool][6].
+
+Author: [Michael Goerz](http://michaelgoerz.net)
 
 This code is licensed under the [GPL](http://www.gnu.org/licenses/gpl.html)
 

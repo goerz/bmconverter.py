@@ -1,0 +1,5 @@
+destination: ./_site
+markdown: maruku
+pygments: true # enable syntax highlight via Pygments
+exclude: 
+  - .gitignore
