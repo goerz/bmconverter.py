@@ -1,6 +1,6 @@
 # bmconverter.py
 
-[http://github.com/goerz/mail.pl](http://github.com/goerz/bmconverter.py)
+[http://github.com/goerz/bmconverter.py](http://github.com/goerz/bmconverter.py)
 
 Author: [Michael Goerz](http://michaelgoerz.net)
 
