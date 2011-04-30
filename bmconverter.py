@@ -1339,7 +1339,10 @@ def read_latex(infilename):
                         current_node.page = int(pagematch.group("page"))
                     viewmatch = viewpattern.search(options)
                     if viewmatch:
-                        current_node.destination = int(pagematch.group("view"))
+                        view = viewmatch.group("view")
+                        if view.startswith("{"):
+                            view = view[1:-1].strip()
+                        current_node.destination = view
             elif namedmatch:
                 current_node.action = "GoToR"
                 current_node.named = namedmatch.group("named")
@@ -1353,7 +1356,10 @@ def read_latex(infilename):
                     current_node.page = int(pagematch.group("page"))
                 viewmatch = viewpattern.search(options)
                 if viewmatch:
-                    current_node.destination = int(pagematch.group("view"))
+                    view = viewmatch.group("view")
+                    if view.startswith("{"):
+                        view = view[1:-1].strip()
+                    current_node.destination = view
             # set other attributes
             colormatch = colorpattern.search(options)
             if colormatch:
@@ -1401,9 +1407,9 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
             warnings.add("WARNING: The latex format cannot express the "
                          + "Launch action")
         if node.bold:
-            options.append['bold']
+            options.append('bold')
         if node.italic:
-            options.append['italic']
+            options.append('italic')
         if node.color is not None:
             options.append("color=[rgb]{%s}" %  ",".join(node.color.split()))
         if node.destination is not None:
@@ -1427,7 +1433,7 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
                 outfile.write('\\bookmark[%sgotor=%s, dest=%s,level=%i]{%s}'
                 % (optstr, node.file, node.named, node.level()-1, node.title))
         elif node.action == 'URI':
-            outfile.write('\\bookmark[%suri=%i,level=%i]{%s}'
+            outfile.write('\\bookmark[%suri=%s,level=%i]{%s}'
             % (optstr, node.uri, node.level()-1, node.title))
         outfile.write("\n")
     outfile.write("\n")
