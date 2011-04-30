@@ -352,9 +352,8 @@ class Bookmark:
                      FitBH top                     Fit bounding box, horiz.
                      FitBV left                    Fit bounding box, vert.
                    left, top zoom, bottom right, left are floats, or 'null'
-    named        Named Destination - no known use so far (unicode string)
-    namedn       Named Destination, as a name - no known use so far
-                   (unicode string)
+    named        Named Destination (unicode string)
+    namedn       Named Destination, as a name (unicode string)
     file         The file a GoToR or Launch action are referring to
                    (unicode string)
     newwindow    Should file be opened in a new window? (boolean)
@@ -477,8 +476,9 @@ class Bookmark:
         if name in ['italic', 'bold', 'open', 'newwindow']:
             if not isinstance(value, bool):
                 if not ( (name == 'newwindow') and (value is None) ):
-                    warn("The attributes 'italic', 'bold', 'open', 'newwindow' " \
-                         + "must be boolean values. %s not set." % name)
+                    warn("The attributes 'italic', 'bold', 'open', "
+                         + "'newwindow' must be boolean values. "
+                         + "%s not set." % name)
                     return None
         if name in ['title', 'file', 'uri', 'destination', 'color', 'action']:
             if value is not None:
@@ -1466,7 +1466,7 @@ def read_csv(infilename):
             key = key.lower()
             result[key] = value
             s = s.strip()
-        return result;
+        return result
     root = Bookmark()
     current_node = root
     current_level = 0
