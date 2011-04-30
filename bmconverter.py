@@ -923,7 +923,7 @@ def main():
         'text'    : (read_text,    write_text),
         'xml'     : (read_xml,     write_xml),
         'djvused' : (read_djvused, write_djvused),
-        'latex'   : (None,         write_latex),
+        'latex'   : (read_latex,   write_latex),
     }
     from_format = None
     to_format = None
@@ -1275,6 +1275,98 @@ def write_text(root, outfilename, long=False):
         warn(warning)
 
 
+def read_latex(infilename):
+    """Read in a latex file describing the bookmarks, return a root
+    bookmark node. The root node itself is empty, and contains all the
+    bookmarks as children."""
+    linepattern = re.compile(r'''
+      ^\s*\\bookmark(?P<options>\[.*\])\{(?P<text>.*)\}\s*$
+    ''', re.X)
+    levelpattern = re.compile(r'[,\[]\s*level\s*=\s*(?P<level>[0-9]+)\s*[,\]]')
+    gotorpattern = re.compile(r'[,\[]\s*gotor\s*=\s*(?P<gotor>[^,\]]+)\s*[,\]]')
+    namedpattern = re.compile(r'[,\[]\s*named\s*=\s*(?P<named>[^,\]]+)\s*[,\]]')
+    uripattern   = re.compile(r'[,\[]\s*uri\s*=\s*(?P<uri>[^,\]]+)\s*[,\]]')
+    pagepattern  = re.compile(r'[,\[]\s*page\s*=\s*(?P<page>[0-9]+)\s*[,\]]')
+    viewpattern  = re.compile(r'[,\[]\s*view\s*=\s*(?P<view>[^,\]]+)\s*[,\]]')
+    destpattern  = re.compile(r'[,\[]\s*dest\s*=\s*(?P<dest>[^,\]]+)\s*[,\]]')
+    boldpattern  = re.compile(r'[,\[]\s*bold\s*[,\]]')
+    italpattern  = re.compile(r'[,\[]\s*italic\s*[,\]]')
+    colorpattern = re.compile(r'''
+    [,\[]\s*
+    color  \s*=\s*  \[rgb\] \s*
+    \{(?P<rgb>[0-9.]+\s*,\s*[0-9.]+\s*,\s*[0-9.]+)\}
+    \s*[,\]]
+    ''', re.X)
+    root = Bookmark()
+    current_node = root
+    current_level = 0
+    infile = codecs.open(infilename, "r", "utf-8")
+    line_nr = 0
+    for line in infile:
+        line_nr += 1
+        match = linepattern.match(line)
+        if match:
+            options = match.group('options')
+            # determine level, create appropriate node
+            level = 1
+            levelmatch = levelpattern.search(options)
+            if levelmatch:
+                level = int(levelmatch.group('level')) + 1
+            if level - current_level > 1:
+                die("There's something wrong with the level "
+                    +"at line %s" % line_nr)
+            while current_level > level:
+                current_node = current_node.parent()
+                current_level -= 1
+            if level == current_level:
+                current_node = current_node.parent()
+                current_level -= 1
+            current_node = current_node.newchild()
+            current_level += 1
+            # set title
+            current_node.title = (match.group('text')).strip()
+            # set action and "main" attributes
+            gotormatch = gotorpattern.search(options)
+            namedmatch = namedpattern.search(options)
+            urimatch = uripattern.search(options)
+            if gotormatch:
+                destmatch = destpattern.search(options)
+                if destmatch:
+                    current_node.file = destmatch.group('dest')
+                else:
+                    pagematch = pagepattern.search(options)
+                    if pagematch:
+                        current_node.page = int(pagematch.group("page"))
+                    viewmatch = viewpattern.search(options)
+                    if viewmatch:
+                        current_node.destination = int(pagematch.group("view"))
+            elif namedmatch:
+                current_node.action = "GoToR"
+                current_node.named = namedmatch.group("named")
+            elif urimatch:
+                current_node.action = "URI"
+                current_node.uri = urimatch.group("uri")
+            else:
+                current_node.action = "GoTo"
+                pagematch = pagepattern.search(options)
+                if pagematch:
+                    current_node.page = int(pagematch.group("page"))
+                viewmatch = viewpattern.search(options)
+                if viewmatch:
+                    current_node.destination = int(pagematch.group("view"))
+            # set other attributes
+            colormatch = colorpattern.search(options)
+            if colormatch:
+                current_node.color = " ".join([c.strip() for c in
+                                     colormatch.group('rgb').split(",")])
+            if boldpattern.search(options):
+                current_node.bold = True
+            if italpattern.search(options):
+                current_node.italic = True
+    infile.close()
+    return root
+
+
 def write_latex(root, outfilename, long=False, title=None, author=None,
                 pdf=None):
     """Write bookmarks to a tex file"""
@@ -1317,7 +1409,6 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
         if node.destination is not None:
             options.append("view={%s}" % node.destination)
         optstr = ", ".join(options)
-        print "len(optstr) = %i" % len(optstr) # DEBUG
         if len(optstr) > 0:
             optstr = optstr + ", "
         outfile.write("    " * ( node.level() - 1 ))
