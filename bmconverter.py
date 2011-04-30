@@ -922,7 +922,8 @@ def main():
         'pdftk'   : (read_pdftk,   write_pdftk),
         'text'    : (read_text,    write_text),
         'xml'     : (read_xml,     write_xml),
-        'djvused' : (read_djvused, write_djvused)
+        'djvused' : (read_djvused, write_djvused),
+        'latex'   : (None,         write_latex),
     }
     from_format = None
     to_format = None
@@ -1234,6 +1235,7 @@ def read_text(infilename):
     infile.close()
     return root
 
+
 def write_text(root, outfilename, long=False):
     """Write bookmarks to a text file"""
     outfile = codecs.open(outfilename, "w", "utf-8")
@@ -1267,6 +1269,78 @@ def write_text(root, outfilename, long=False):
             if (node.destination is not None) and (node.destination != ""):
                 outfile.write(" " + node.destination)
         outfile.write("\n")
+    outfile.close()
+    for warning in warnings:
+        warn("")
+        warn(warning)
+
+
+def write_latex(root, outfilename, long=False, title=None, author=None,
+                pdf=None):
+    """Write bookmarks to a tex file"""
+    outfile = codecs.open(outfilename, "w", "utf-8")
+    warnings = set()
+    options = []
+    outfile.write("\\documentclass{article}\n")
+    outfile.write("\\usepackage[utf8]{inputenc}\n")
+    outfile.write("\\usepackage{pdfpages}\n")
+    outfile.write("\\usepackage[\n")
+    outfile.write("  pdfpagelabels=true,\n")
+    if title is not None:
+        outfile.write("  pdftitle={%s},\n" % title)
+    if author is not None:
+        outfile.write("  pdfauthor={%s},\n" % author)
+    outfile.write("]{hyperref}\n")
+    outfile.write("\\usepackage{bookmark}\n")
+    outfile.write("\n")
+    outfile.write("\\begin{document}\n")
+    outfile.write("\n")
+    if pdf is not None:
+        outfile.write("\\pagenumbering{roman}\n")
+        outfile.write("\\setcounter{page}{1}\n")
+        outfile.write("\\includepdf[pages=-]{%s}\n" % pdf)
+    else:
+        outfile.write("%\\pagenumbering{roman}\n")
+        outfile.write("%\\setcounter{page}{1}\n")
+        outfile.write("%\\includepdf[pages=-]{file.pdf}\n")
+    outfile.write("\n")
+    for node in root:
+        if node.action == 'Launch':
+            warnings.add("WARNING: The latex format cannot express the "
+                         + "Launch action")
+        if node.bold:
+            options.append['bold']
+        if node.italic:
+            options.append['italic']
+        if node.color is not None:
+            options.append("color=[rgb]{%s}" %  ",".join(node.color.split()))
+        if node.destination is not None:
+            options.append("view={%s}" % node.destination)
+        optstr = ", ".join(options)
+        print "len(optstr) = %i" % len(optstr) # DEBUG
+        if len(optstr) > 0:
+            optstr = optstr + ", "
+        outfile.write("    " * ( node.level() - 1 ))
+        if node.action == 'GoTo':
+            if node.named is None:
+                outfile.write('\\bookmark[%spage=%i,level=%i]{%s}'
+                % (optstr, node.page, node.level()-1, node.title))
+            else:
+                outfile.write('\\bookmark[%sdest=%s,level=%i]{%s}'
+                % (optstr, node.named, node.level()-1, node.title))
+        elif node.action == 'GoToR':
+            if node.named is None:
+                outfile.write('\\bookmark[%sgotor=%s, page=%i,level=%i]{%s}'
+                % (optstr, node.file, node.page, node.level()-1, node.title))
+            else:
+                outfile.write('\\bookmark[%sgotor=%s, dest=%s,level=%i]{%s}'
+                % (optstr, node.file, node.named, node.level()-1, node.title))
+        elif node.action == 'URI':
+            outfile.write('\\bookmark[%suri=%i,level=%i]{%s}'
+            % (optstr, node.uri, node.level()-1, node.title))
+        outfile.write("\n")
+    outfile.write("\n")
+    outfile.write("\\end{document}\n")
     outfile.close()
     for warning in warnings:
         warn("")
