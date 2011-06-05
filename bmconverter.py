@@ -1806,8 +1806,8 @@ def read_djvused(infilename):
             continue
         else:
             warn("Ignored line %s. Not parsable" % line_nr)
-    return root
     infile.close()
+    return root
 
 def write_djvused(root, outfilename):
     """Write bookmarks to a djvused text file"""
