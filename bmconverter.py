@@ -1440,13 +1440,15 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
     outfile.write("\\documentclass{article}\n")
     outfile.write("\\usepackage[utf8]{inputenc}\n")
     outfile.write("\\usepackage{pdfpages}\n")
-    outfile.write("\\usepackage[\n")
+    outfile.write("\\usepackage{hyperref}\n")
+    outfile.write("\\hypersetup{\n")
+    outfile.write("  unicode=true,\n")
     outfile.write("  pdfpagelabels=true,\n")
     if title is not None:
         outfile.write("  pdftitle={%s},\n" % escape_latex(title))
     if author is not None:
         outfile.write("  pdfauthor={%s},\n" % escape_latex(author))
-    outfile.write("]{hyperref}\n")
+    outfile.write("}\n")
     outfile.write("\\usepackage{bookmark}\n")
     outfile.write("\n")
     outfile.write("\\begin{document}\n")
