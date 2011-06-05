@@ -927,6 +927,7 @@ def main():
         'xml'     : (read_xml,     write_xml),
         'djvused' : (read_djvused, write_djvused),
         'latex'   : (read_latex,   write_latex),
+        'pdf'     : (read_pdf,     None),
     }
     from_format = None
     to_format = None
@@ -1852,6 +1853,108 @@ def write_djvused(root, outfilename):
     outfile.write("\n")
     outfile.close()
 
+def read_pdf(infilename): 
+    """ Read bookmarkds directly from a pdf file. Formatting of the bookmark
+        titles is disregarded
+    """
+    try:
+        from pdfminer.psparser  import PSKeyword, PSLiteral
+        from pdfminer.pdfparser import PDFDocument, PDFParser, \
+                                       PDFNoOutlines, PDFDestinationNotFound
+        from pdfminer.pdftypes  import PDFStream, PDFObjRef, resolve1, \
+                                       stream_value
+    except ImportError:
+        die("You must install the pdfminer package to read bookmarkds "
+            "directly from pdf")
+    def resolve_dest(dest):
+        if isinstance(dest, str):
+            try:
+                dest = resolve1(doc.get_dest(dest))
+            except PDFDestinationNotFound:
+                warn("Destination not found: %s" % dest)
+        elif isinstance(dest, PSLiteral):
+            dest = resolve1(doc.get_dest(dest.name))
+        if isinstance(dest, dict):
+            dest = dest['D']
+        for i, element in enumerate(dest):
+            if str(element) in [r'/XYZ', r'/Fit', r'/FitH', r'/FitV', r'/FitR', 
+            r'/FitB', r'/FitBH', r'/FitBV']:
+                dest[i] = str(element)[1:] # strip slash
+            if element is None:
+                dest[i] = 'null'
+        return dest
+    root = Bookmark()
+    current_node = root
+    current_level = 0
+    doc = PDFDocument()
+    fp = file(infilename, 'rb')
+    parser = PDFParser(fp)
+    parser.set_document(doc)
+    doc.set_parser(parser)
+    doc.initialize()
+    pages = dict( (page.pageid, pageno) 
+                  for (pageno,page) in enumerate(doc.get_pages()) )
+    try:
+        outlines = doc.get_outlines()
+    except PDFNoOutlines:
+        pass
+    for (level,title,dest,a,se) in outlines:
+        while current_level > level:
+            current_node = current_node.parent()
+            current_level -= 1
+        if level == current_level:
+            current_node = current_node.parent()
+            current_level -= 1
+        current_node = current_node.newchild()
+        current_level += 1
+        current_node.title = title
+        if a:
+            action = a.resolve()
+            if isinstance(action, dict):
+                subtype = action.get('S')
+                if repr(subtype) == '/GoTo':
+                    current_node.action = 'GoTo'
+                    dest = resolve_dest(action['D'])
+                    if type(dest) is str:
+                        warn("Named string destinations are not currently"
+                             + " supported ('%s')" % title)
+                    else:
+                        current_node.page = int(pages[dest[0].objid]) + 1
+                        if dest is not None:
+                            current_node.destination = \
+                            u" ".join([str(d) for d in dest[1:]])
+                elif repr(subtype) == '/GoToR':
+                    current_node.action = 'GoToR'
+                    dest = resolve_dest(action['D'])
+                    current_node.fileno = int(dest[0])
+                    current_node.destination = \
+                                           u" ".join([str(d) for d in dest[1:]])
+                    current_node.file = unicode(action['F'].resolve()['F'])
+                elif repr(subtype) == '/Launch':
+                    current_node.action = 'Launch'
+                    dest = action['F'].resolve()
+                    if repr(dest['Type']) == '/Filespec':
+                        current_node.file = unicode(dest['F'])
+                    else:
+                        die("We can only handle /Launch links to files: %s"
+                            % str(dest))
+                elif repr(subtype) == '/URI':
+                    current_node.action = 'URI'
+                    current_node.uri = unicode(action['URI'])
+                elif repr(subtype) in ['/Named', '/Sound', '/GotoE', '/Movie',
+                '/Hide', '/SubmitForm', '/ResetForm', '/ImportData', 
+                '/JavaScript', '/SetOCGState', '/Rendition', '/Trans', 
+                '/GoTo3DView']:
+                    warn("The %s action is not currently supported ('%s')" 
+                         % (repr(subtype), title))
+                else:
+                    die("Unkown action %s" % subtype)
+            else:
+                die("Unexpected a -> %s" % action)
+        else:
+            die("Can't get action")
+    parser.close()
+    return root
 
 if __name__ == "__main__":
     main()
