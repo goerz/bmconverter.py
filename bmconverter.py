@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#   Copyright (C) 2007  Michael Goerz
+#   Copyright (C) 2011  Michael Goerz
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 This script converts between the bookmark description formats used by different
-pdf and djvu bookmarking tools such as pdftk, the iText toolbox,
+pdf and djvu bookmarking tools such as pdftk, the iText toolbox, pdfLaTeX,
 pdfWriteBookmarks, jpdftweak, djvused, and the DJVU Bookmark Tool.
 
 It operates on text files in the various supported formats that describe the
@@ -54,7 +54,11 @@ Command Line Options
  -h                   Short for -help
 
 In the mode option, 'in' and 'out' can be any of the supported formats:
-'xml', 'text', 'pdftk', 'csv', 'djvused' or 'html'
+'xml', 'text', 'pdftk', 'csv', 'djvused', 'latex', or 'html'
+
+Additionally, 'in' can be 'pdf', in which case the bookmarks are read directly
+from the given pdf file. The pdfminer library must be installed for this to
+work.
 
 An example usage is 'bmconverter.py --offset 2 --mode xml2text bm.xml bm.txt'
 
@@ -268,6 +272,22 @@ An example of the format is the following:
 Note how the target url can be the pagenumber, an external reference, or a url.
 Quotes inside the title have to be escaped. Non-ascii characters are written as
 escaped octal UTF-8
+
+
+The latex Format
+================
+
+The latex format results in  a standalone tex file that adds the bookmarks to
+the target pdf when compiled with pdflatex (after a few edits). This is
+possible by using the pdfpages, hyperref, and bookmark packages. See especially
+the documentation of the bookmark package to see how bookmarks are expressed.
+
+An example of the format is the following:
+
+\\bookmark[view={XYZ null null null}, page=1,level=0]{level 1 bookmark}
+
+For parsing the latex format, each \\bookmark entry must be written entirely
+one a single line
 
 
 Interactive Usage
