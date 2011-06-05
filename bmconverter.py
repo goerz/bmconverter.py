@@ -336,6 +336,9 @@ For the full documentation, run
 inside the python interpretor
 """
 
+# TODO: add support for handling metadata: every handler should return or
+#       receive a metadata dict
+# TODO: add support for jpdfbookmarks
 
 import sys
 import re
