@@ -1951,7 +1951,17 @@ def read_pdf(infilename):
                     die("Unkown action %s" % subtype)
             else:
                 die("Unexpected a -> %s" % action)
+        elif dest:
+            current_node.action = 'GoTo'
+            dest = resolve_dest(dest)
+            current_node.page = int(pages[dest[0].objid]) + 1
+            current_node.destination = u" ".join([str(d) for d in dest[1:]])
         else:
+            warn("level: %s" % level)
+            warn("title: %s" % title)
+            warn("dest : %s" % dest)
+            warn("a    : %s" % a)
+            warn("se   : %s" % se)
             die("Can't get action")
     parser.close()
     return root
