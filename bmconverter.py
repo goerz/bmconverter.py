@@ -1382,7 +1382,6 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
     """Write bookmarks to a tex file"""
     outfile = codecs.open(outfilename, "w", "utf-8")
     warnings = set()
-    options = []
     outfile.write("\\documentclass{article}\n")
     outfile.write("\\usepackage[utf8]{inputenc}\n")
     outfile.write("\\usepackage{pdfpages}\n")
@@ -1407,6 +1406,7 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
         outfile.write("%\\includepdf[pages=-]{file.pdf}\n")
     outfile.write("\n")
     for node in root:
+        options = []
         if node.action == 'Launch':
             warnings.add("WARNING: The latex format cannot express the "
                          + "Launch action")
