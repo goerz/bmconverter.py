@@ -350,6 +350,29 @@ def die(msg):
     exit(2)
 
 
+def escape_latex(unistring):
+    '''Escape a unicode string for LaTeX. '''
+    _latex_special_chars = {
+        u'$':  u'\\$',
+        u'%':  u'\\%',
+        u'&':  u'\\&',
+        u'#':  u'\\#',
+        u'_':  u'\\_',
+        u'{':  u'\\{',
+        u'}':  u'\\}',
+        u'[':  u'{[}',
+        u']':  u'{]}',
+        u'"':  u"{''}",
+        u'\\': u'\\textbackslash{}',
+        u'~':  u'\\textasciitilde{}',
+        u'<':  u'\\textless{}',
+        u'>':  u'\\textgreater{}',
+        u'^':  u'\\textasciicircum{}',
+        u'`':  u'{}`',   # avoid ?` and !`
+    }
+    return u''.join(_latex_special_chars.get(c, c) for c in unistring)
+
+
 class Bookmark:
     """ Tree ADT for the bookmarks
 
@@ -1408,9 +1431,9 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
     outfile.write("\\usepackage[\n")
     outfile.write("  pdfpagelabels=true,\n")
     if title is not None:
-        outfile.write("  pdftitle={%s},\n" % title)
+        outfile.write("  pdftitle={%s},\n" % escape_latex(title))
     if author is not None:
-        outfile.write("  pdfauthor={%s},\n" % author)
+        outfile.write("  pdfauthor={%s},\n" % escape_latex(author))
     outfile.write("]{hyperref}\n")
     outfile.write("\\usepackage{bookmark}\n")
     outfile.write("\n")
@@ -1445,20 +1468,22 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
         if node.action == 'GoTo':
             if node.named is None:
                 outfile.write('\\bookmark[%spage=%i,level=%i]{%s}'
-                % (optstr, node.page, node.level()-1, node.title))
+                % (optstr, node.page, node.level()-1, escape_latex(node.title)))
             else:
                 outfile.write('\\bookmark[%sdest=%s,level=%i]{%s}'
                 % (optstr, node.named, node.level()-1, node.title))
         elif node.action == 'GoToR':
             if node.named is None:
                 outfile.write('\\bookmark[%sgotor=%s, page=%i,level=%i]{%s}'
-                % (optstr, node.file, node.page, node.level()-1, node.title))
+                % (optstr, node.file, node.page, node.level()-1,
+                   escape_latex(node.title)))
             else:
                 outfile.write('\\bookmark[%sgotor=%s, dest=%s,level=%i]{%s}'
-                % (optstr, node.file, node.named, node.level()-1, node.title))
+                % (optstr, node.file, node.named, node.level()-1,
+                   escape_latex(node.title)))
         elif node.action == 'URI':
             outfile.write('\\bookmark[%suri=%s,level=%i]{%s}'
-            % (optstr, node.uri, node.level()-1, node.title))
+            % (optstr, node.uri, node.level()-1, escape_latex(node.title)))
         outfile.write("\n")
     outfile.write("\n")
     outfile.write("\\end{document}\n")
