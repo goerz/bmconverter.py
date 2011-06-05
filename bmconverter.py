@@ -23,6 +23,11 @@ It operates on text files in the various supported formats that describe the
 bookmark structure in pdf or djvu files. You can then use the aforementioned
 tools to add the described bookmarks to the pdf or djvu file.
 
+The script includes some rudimentary functionality to extract the bookmarks
+directly from a pdf file (writing to any of the supported text formats). This
+functionality depends on the pdfminer library. Advanced features like
+formatting of the bookmark titles are not supported in the extraction.
+
 In addition to converting between the different formats, the script can also
 shift the page numbers associated with the bookmarks. This is useful if you need
 to work on a file obtained from a table of contents, where the page numbers in
