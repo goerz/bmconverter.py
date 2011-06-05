@@ -1479,6 +1479,8 @@ def write_latex(root, outfilename, metadata={}):
         outfile.write("\\setcounter{page}{1}\n")
         outfile.write("\\includepdf[pages=-]{%s}\n" % metadata['pdf'])
     else:
+        warn("No key 'pdf' in the metadata. "
+             + "You'll need to edit the resulting tex file before compiling")
         outfile.write("%\\pagenumbering{arabic}\n")
         outfile.write("%\\setcounter{page}{1}\n")
         outfile.write("%\\includepdf[pages=-]{file.pdf}\n")
