@@ -1898,7 +1898,7 @@ def write_djvused(root, outfilename):
     outfile.write("\n")
     outfile.close()
 
-def read_pdf(infilename): 
+def read_pdf(infilename):
     """ Read bookmarkds directly from a pdf file. Formatting of the bookmark
         titles is disregarded
     """
@@ -1922,7 +1922,7 @@ def read_pdf(infilename):
         if isinstance(dest, dict):
             dest = dest['D']
         for i, element in enumerate(dest):
-            if str(element) in [r'/XYZ', r'/Fit', r'/FitH', r'/FitV', r'/FitR', 
+            if str(element) in [r'/XYZ', r'/Fit', r'/FitH', r'/FitV', r'/FitR',
             r'/FitB', r'/FitBH', r'/FitBV']:
                 dest[i] = str(element)[1:] # strip slash
             if element is None:
@@ -1937,7 +1937,7 @@ def read_pdf(infilename):
     parser.set_document(doc)
     doc.set_parser(parser)
     doc.initialize()
-    pages = dict( (page.pageid, pageno) 
+    pages = dict( (page.pageid, pageno)
                   for (pageno,page) in enumerate(doc.get_pages()) )
     try:
         outlines = doc.get_outlines()
@@ -1987,10 +1987,10 @@ def read_pdf(infilename):
                     current_node.action = 'URI'
                     current_node.uri = unicode(action['URI'])
                 elif repr(subtype) in ['/Named', '/Sound', '/GotoE', '/Movie',
-                '/Hide', '/SubmitForm', '/ResetForm', '/ImportData', 
-                '/JavaScript', '/SetOCGState', '/Rendition', '/Trans', 
+                '/Hide', '/SubmitForm', '/ResetForm', '/ImportData',
+                '/JavaScript', '/SetOCGState', '/Rendition', '/Trans',
                 '/GoTo3DView']:
-                    warn("The %s action is not currently supported ('%s')" 
+                    warn("The %s action is not currently supported ('%s')"
                          % (repr(subtype), title))
                 else:
                     die("Unkown action %s" % subtype)
