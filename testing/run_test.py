@@ -11,7 +11,7 @@ import sys
 # TODO: Test bookmark tree modifications (adding, removing nodes, shifting pages, etc.)
 
 def modificationtest():
-    b = read_xml("pathological.in.xml")
+    b, md = read_xml("pathological.in.xml")
     c = b.copy()
     for node in c:
         node.title = "COPY " + node.title
@@ -23,7 +23,7 @@ def modificationtest():
     c.shift_pagenumber(-50)
     d = b + c
     write_csv(d, "out.csv")
-    c = read_csv("out.csv")
+    c, md = read_csv("out.csv")
     write_xml(c, "out.xml")
     stdout = sys.stdout
     stdin  = sys.stdin
@@ -133,7 +133,7 @@ for test in tests:
         print "\t\tPassed\n"
     else:
         print "\t\tFAILED\n"
-        os.system('kompare %s %s' % (test['out'], test['expected']))
+        os.system('vimdiff %s %s' % (test['out'], test['expected']))
     dummy = raw_input("Press Enter to finish test")
     for file in test['cleanup']:
         os.remove(file)
