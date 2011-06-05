@@ -869,7 +869,7 @@ def usage():
     """Display Program Usage"""
     print """
 bmconverter.py
-(c) 2007 Michael Goerz - This program is provided under the terms of the GPL.
+(c) 2011 Michael Goerz - This program is provided under the terms of the GPL.
 
 Usage: bmconverter.py options inputfile [outputfile]
 
@@ -891,7 +891,11 @@ Command Line Options
  -h                   Short for -help
 
 In the mode option, 'in' and 'out' can be any of the supported formats:
-'xml', 'text', 'pdftk', 'html', 'djvused', or 'csv'
+'xml', 'text', 'pdftk', 'csv', 'djvused', 'latex', or 'html'
+
+Additionally, 'in' can be 'pdf', in which case the bookmarks are read directly
+from the given pdf file. The pdfminer library must be installed for this to
+work.
 
 An example usage is 'bmconverter.py --offset 2 --mode xml2text bm.xml bm.txt'
 
