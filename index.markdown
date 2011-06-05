@@ -336,7 +336,7 @@ deeper than 2 to 'closed' in Acrobat Reader, and write the resulting structure
 to an iText xml file.
 
     >>> from bmconverter import *
-    >>> bm = read_text("bookmarks.txt")
+    >>> bm, md = read_text("bookmarks.txt")
     >>> for node in bm:
     ...     if node.level() > 2:
     ...         node.open = False
