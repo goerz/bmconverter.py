@@ -57,6 +57,10 @@ arbitrary modifications to the bookmark data
                           of full destinations, instead of just page numbers
      -l                   Short for --long
 
+     --pdf FILENAME       Set metadata['pdf'] to the given filename. When used
+                          together with the latex output mode, the resulting tex
+                          file will reference the given filename.
+
      --help               Displays full help
      -h                   Short for -help
 

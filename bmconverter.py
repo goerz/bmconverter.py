@@ -43,7 +43,6 @@ Usage: bmconverter.py options inputfile [outputfile]
 
 
 Command Line Options
-====================
 
  --mode in2out        Sets the script's operation mode. This option is required.
  -m  in2out           Short for --mode
@@ -55,7 +54,11 @@ Command Line Options
                       of full destinations, instead of just page numbers
  -l                   Short for --long
 
- --help               Displays this message
+ --pdf FILENAME       Set metadata['pdf'] to the given filename. When used
+                      together with the latex output mode, the resulting tex
+                      file will reference the given filename.
+
+ --help               Displays full help
  -h                   Short for -help
 
 In the mode option, 'in' and 'out' can be any of the supported formats:
@@ -336,8 +339,7 @@ For the full documentation, run
 inside the python interpretor
 """
 
-# TODO: add support for handling metadata: every handler should return or
-#       receive a metadata dict
+# TODO: improve support for handling metadata
 # TODO: add support for jpdfbookmarks
 
 import sys
@@ -895,6 +897,10 @@ Command Line Options
                       of full destinations, instead of just page numbers
  -l                   Short for --long
 
+ --pdf FILENAME       Set metadata['pdf'] to the given filename. When used
+                      together with the latex output mode, the resulting tex
+                      file will reference the given filename.
+
  --help               Displays full help
  -h                   Short for -help
 
@@ -931,10 +937,11 @@ def main():
     try:
         opts, files = getopt.getopt(sys.argv[1:], "hm:o:l",
                                                  ["help", "mode=", "offset=",
-                                                  "long"])
+                                                  "pdf=", "long"])
     except getopt.GetoptError, details:
         die(details)
 
+    pdf = None
     mode = ""
     offset = 0
     text_long = False
@@ -951,6 +958,8 @@ def main():
                 die("Offset must be an integer.")
         if o in ("-l", "--long"):
             text_long = True
+        if o == "--pdf":
+            pdf = a
 
     # deal with the input- and output file
     if len(files) < 1:
@@ -1011,23 +1020,25 @@ def main():
 
     # Execute
     warn("Reading bookmarks in '%s' in %s format" % (infilename, from_format))
-    bm = from_handler(infilename)
+    bm, metadata = from_handler(infilename)
+    if pdf is not None:
+        metadata['pdf'] = pdf
     if (offset != 0):
         warn("Shifting page-numbers by %i" % offset)
         bm.shift_pagenumber(offset)
     warn("Writing out bookmarks to '%s' in %s format" \
           % (outfilename, to_format))
     if to_format == 'text':
-        to_handler(bm, outfilename, text_long)
+        to_handler(bm, outfilename, metadata, text_long)
     else:
-        to_handler(bm, outfilename)
+        to_handler(bm, outfilename, metadata)
 
 
 
 def read_xml(infilename):
-    """Read in an iText XML file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """Read in an iText XML file describing the bookmarks, return a tuple
+    (root, {}) where root is a root bookmark node. The root node itself is
+    empty, and contains all the bookmarks as children."""
     root = Bookmark()
 
     # Define specialized handler class
@@ -1091,11 +1102,13 @@ def read_xml(infilename):
         warn("There was a fatal error in parsing the xml file:")
         die(data)
 
-    return root
+    return (root, {})
 
 
-def write_xml(root, outfilename):
-    """Write bookmarks into an iText XML file, encoded in UTF-8"""
+def write_xml(root, outfilename, metadata={}):
+    """ Write bookmarks into an iText XML file, encoded in UTF-8.
+        The metadata is ignored for this format
+    """
     outfile = codecs.open(outfilename, "w", "utf-8")
     def str_bm(node):
         if node.is_root():
@@ -1149,9 +1162,12 @@ def write_xml(root, outfilename):
 
 
 def read_pdftk(infilename):
-    """Read in a pdftk text file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in a pdftk text file describing the bookmarks, return a tuple
+        (root, metadata), where root a root bookmark node and metadata is a dict
+        of metadata entries. The root node itself is empty, and contains all the
+        bookmarks as children.
+    """
+    # TODO: parse proper metadata
     titlepattern = re.compile(r'BookmarkTitle:\s*(.+)')
     levelpattern = re.compile(r'BookmarkLevel:\s*([0-9]+)\s*')
     pagepattern  = re.compile(r'BookmarkPageNumber:\s*([0-9]+)\s*')
@@ -1201,11 +1217,12 @@ def read_pdftk(infilename):
         else:
             warn("Ignored line %s. Not parsable" % line_nr)
     infile.close()
-    return root
+    return (root, {})
 
 
-def write_pdftk(root, outfilename):
+def write_pdftk(root, outfilename, metadata={}):
     """Write bookmarks to a pdftk text file"""
+    # TODO: write Metadata
     def escape(source):
         """Receive and return unicode string, convert all non-ascii characters
         (or non-printables) to XML decimal entities"""
@@ -1246,9 +1263,10 @@ def write_pdftk(root, outfilename):
 
 
 def read_text(infilename):
-    """Read in a text file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in a text file describing the bookmarks, return a tuple (root, {})
+        where root is a root bookmark node. The root node itself is empty, and
+        contains all the bookmarks as children.
+    """
     linepattern = re.compile(r'''
       (?P<indent>\s*)
       (?P<text>\S.*)   ::  [ ]*  (?P<page>[0-9]*)
@@ -1292,11 +1310,12 @@ def read_text(infilename):
         else:
             warn("Ignored line %s. Not parsable" % line_nr)
     infile.close()
-    return root
+    return (root, {})
 
 
-def write_text(root, outfilename, long=False):
-    """Write bookmarks to a text file"""
+def write_text(root, outfilename, metadata={}, long=False):
+    """ Write bookmarks to a text file. The metadata is ignored in this format
+    """
     outfile = codecs.open(outfilename, "w", "utf-8")
     warnings = set()
     for node in root:
@@ -1335,9 +1354,12 @@ def write_text(root, outfilename, long=False):
 
 
 def read_latex(infilename):
-    """Read in a latex file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in a latex file describing the bookmarks, return a tuple (root,
+        metadata) where root is a root bookmark node and metadata is a dict of
+        metadata. The root node itself is empty, and contains all the bookmarks
+        as children.
+    """
+    # TODO: read metadata
     linepattern = re.compile(r'''
       ^\s*\\bookmark(?P<options>\[.*\])\{(?P<text>.*)\}\s*$
     ''', re.X)
@@ -1429,11 +1451,10 @@ def read_latex(infilename):
             if italpattern.search(options):
                 current_node.italic = True
     infile.close()
-    return root
+    return (root, {})
 
 
-def write_latex(root, outfilename, long=False, title=None, author=None,
-                pdf=None):
+def write_latex(root, outfilename, metadata={}):
     """Write bookmarks to a tex file"""
     outfile = codecs.open(outfilename, "w", "utf-8")
     warnings = set()
@@ -1444,21 +1465,21 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
     outfile.write("\\hypersetup{\n")
     outfile.write("  unicode=true,\n")
     outfile.write("  pdfpagelabels=true,\n")
-    if title is not None:
-        outfile.write("  pdftitle={%s},\n" % escape_latex(title))
-    if author is not None:
-        outfile.write("  pdfauthor={%s},\n" % escape_latex(author))
+    if metadata.has_key('title'):
+        outfile.write("  pdftitle={%s},\n" % escape_latex(metadata['title']))
+    if metadata.has_key('author'):
+        outfile.write("  pdfauthor={%s},\n" % escape_latex(metadata['author']))
     outfile.write("}\n")
     outfile.write("\\usepackage{bookmark}\n")
     outfile.write("\n")
     outfile.write("\\begin{document}\n")
     outfile.write("\n")
-    if pdf is not None:
-        outfile.write("\\pagenumbering{roman}\n")
+    if metadata.has_key('pdf'):
+        outfile.write("\\pagenumbering{arabic}\n")
         outfile.write("\\setcounter{page}{1}\n")
-        outfile.write("\\includepdf[pages=-]{%s}\n" % pdf)
+        outfile.write("\\includepdf[pages=-]{%s}\n" % metadata['pdf'])
     else:
-        outfile.write("%\\pagenumbering{roman}\n")
+        outfile.write("%\\pagenumbering{arabic}\n")
         outfile.write("%\\setcounter{page}{1}\n")
         outfile.write("%\\includepdf[pages=-]{file.pdf}\n")
     outfile.write("\n")
@@ -1508,9 +1529,10 @@ def write_latex(root, outfilename, long=False, title=None, author=None,
 
 
 def read_html(infilename):
-    """Read in an a Djvu html file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in an a Djvu html file describing the bookmarks, return a tuple
+        (root, {}) where root is a root bookmark node. The root node itself is
+        empty, and contains all the bookmarks as children.
+    """
     root = Bookmark()
 
     # Define specialized handler class
@@ -1589,11 +1611,13 @@ def read_html(infilename):
         warn("There was a fatal error in parsing the html file:")
         die(data)
 
-    return root
+    return (root, {})
 
 
-def write_html(root, outfilename):
-    """Write bookmarks to a Djvu html file"""
+def write_html(root, outfilename, metadata={}):
+    """ Write bookmarks to a Djvu html file. The metadata is ignored in this
+        format.
+    """
     outfile = codecs.open(outfilename, "w", "utf-8")
     def str_bm(node):
         if node.is_root():
@@ -1642,9 +1666,10 @@ def write_html(root, outfilename):
 
 
 def read_csv(infilename):
-    """Read in an jpdftweak csv file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in an jpdftweak csv file describing the bookmarks, return a tuple
+        (root, {}) where root is a root bookmark node. The root node itself is
+        empty, and contains all the bookmarks as children.
+    """
     linepattern = re.compile(r'''
     (?P<depth>         -?[0-9]+);
     (?P<flags>         O?B?I?);    # open, bold, italic
@@ -1752,11 +1777,13 @@ def read_csv(infilename):
         else:
             warn("Ignored line %s. Not parsable" % line_nr)
     infile.close()
-    return root
+    return (root, {})
 
 
-def write_csv(root, outfilename):
-    """Write bookmarks to a jpdftweak csv file"""
+def write_csv(root, outfilename, metadata={}):
+    """ Write bookmarks to a jpdftweak csv file. The metadata is ignored in
+        this format
+    """
     def escape(s):
         """Apply the escape scheme used in the csv:
         All nonprintable characters (ascii < 32) and the characters [\:"'] are
@@ -1815,10 +1842,12 @@ def write_csv(root, outfilename):
         outfile.write("\n")
     outfile.close()
 
+
 def read_djvused(infilename):
-    """Read in a djvused text file describing the bookmarks, return a root
-    bookmark node. The root node itself is empty, and contains all the
-    bookmarks as children."""
+    """ Read in a djvused text file describing the bookmarks, return a tuple
+        (root, {}) where root is a root bookmark node. The root node itself is
+        empty, and contains all the bookmarks as children.
+    """
     startpattern = re.compile(r'\s*  \(bookmarks  \s*  ', re.X)
     titlepattern = re.compile(r'\s*  \(  "(?P<title> .*)"  \s*  ', re.X)
     targetpattern = re.compile(r'''
@@ -1867,10 +1896,13 @@ def read_djvused(infilename):
         else:
             warn("Ignored line %s. Not parsable" % line_nr)
     infile.close()
-    return root
+    return (root, {})
 
-def write_djvused(root, outfilename):
-    """Write bookmarks to a djvused text file"""
+
+def write_djvused(root, outfilename, metadata={}):
+    """ Write bookmarks to a djvused text file. The metadata is ignored in this
+        format.
+    """
     def escape(source):
         """Receive and return unicode string, convert all non-ascii characters
         (or non-printables) to octal-escaped UTF-8"""
@@ -1912,10 +1944,18 @@ def write_djvused(root, outfilename):
     outfile.write("\n")
     outfile.close()
 
+
 def read_pdf(infilename):
-    """ Read bookmarkds directly from a pdf file. Formatting of the bookmark
-        titles is disregarded
+    """ Read bookmarkds directly from a pdf file, and return a tuple (root,
+        metadata), where root is a root bookmark node. The root node itself is
+        empty, and contains all the bookmarks as children. Formatting of the
+        bookmark titles is disregarded. The metadata is a dict of metadata
+        extracted from the pdf, and additionally with the key 'pdf' set to the
+        value of infilename.
     """
+    # TODO: parse metadata
+    metadata = {}
+    metadata['pdf'] = infilename
     try:
         from pdfminer.psparser  import PSKeyword, PSLiteral
         from pdfminer.pdfparser import PDFDocument, PDFParser, \
@@ -2023,7 +2063,7 @@ def read_pdf(infilename):
             warn("se   : %s" % se)
             die("Can't get action")
     parser.close()
-    return root
+    return (root, metadata)
 
 if __name__ == "__main__":
     main()
